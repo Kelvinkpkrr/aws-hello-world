@@ -3,7 +3,8 @@ const fs = require("fs");
 const app = express();
 
 app.get("/", (req, res) => {
-  fs.writeFile("notes.json", JSON.stringify({ name: "Kelvin" }));
+  const dataJSON = JSON.stringify(notes);
+  fs.writeFileSync("notes.json", dataJSON);
   res.send("Home page");
 });
 
